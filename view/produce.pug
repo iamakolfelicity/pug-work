@@ -1,0 +1,73 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Produce Registration
+    link(rel='stylesheet', href='/css/produce.css')
+    link(rel='stylesheet', href='/css/css/bootstrap.css')
+  body
+    .container.mt-5
+      form(action='/products/addProduct',method='post',onsubmit='return formValidate()',enctype='multipart/form-data'
+      )
+        h1.mb-4 PRODUCE REGISTRATION FORM
+
+        .row.mb-3
+          .col
+            label.form-label(for='produceName') Produce Name
+            input#produceName.form-control(type='text', name='produceName', )
+            span#name-error.text-danger
+          .col
+            label.form-label(for='produceType') Produce Type
+            input#produceType.form-control(type='text', name='produceType', )
+            span#type-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='tonnage') Tonnage
+            input#tonnage.form-control(type='number', name='tonnage', )
+            span#tonnage-error.text-danger
+          .col
+            label.form-label(for='amount') Total Amount
+            input#amount.form-control(type='number', name='amount', placeholder='Enter amount paid', )
+            span#amount-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='branch') Branch
+            input#branch.form-control(type='text', name='branch', )
+            span#branch-error.text-danger
+          .col
+            label.form-label(for='price') Price to be sold at
+            input#price.form-control(type='number', name='price', )
+            span#price-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='date') Date of Delivery
+            input#date.form-control(type='date', name='date', )
+            span#date-error.text-danger
+          .col
+            label.form-label(for='time') Time of Delivery
+            input#time.form-control(type='time', name='time', )
+            span#time-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='dealerName') Dealer's Name
+            input#dealerName.form-control(type='text', name='dealerName', )
+            span#sales-error.text-danger
+          .col
+            label.form-label(for='phone') Phone Number
+            input#phone.form-control(type='text', name='phone_number', placeholder='Enter phone number')
+          .col
+            label.form-label(for='image') Produce Image
+            input#image.form-control(type='file', name='image')
+            span#image-error.text-danger
+
+        .row
+          .col
+            button.btn.btn-success(type='submit') Submit
+
+    script(src='/js/js/bootstrap.bundle.js')
+    script(src='/js/produce.js')

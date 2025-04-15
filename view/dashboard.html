@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/kgl/dashboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                  </nav>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <h3>MENU</h3>
+            
+            <ul class="list">
+                <li>
+                    <span class="material-icons-outlined">dashboard</span> Dashboard
+                </li>
+                <br><br>
+                <li>
+                    <span class="material-icons-outlined">home</span> Home
+                </li>
+                <br><br>
+                <li>
+                    <span class="material-icons-outlined">groups</span> Users
+                </li>
+                <br><br>
+                <li>
+                    <span class="material-icons-outlined">note</span> Notes
+                </li>
+                <br><br>
+                <li>
+                    <span class="material-icons-outlined">settings</span> Settings
+                </li>
+                <br><br> <br><br>
+                <li class="logout">
+                    <span class="material-icons-outlined">logout</span> Logout
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-container">
+            <div class="main-title"></div>
+                <br>
+         <div class="main-card">
+                <div class="card" id="first">
+                    <div class="innercard">
+                        <p class="text-primary">PRODUCTS</p>
+                    </div>
+                    <span>246</span>
+                </div>
+
+                <div class="card" id="second">
+                    <div class="innercard">
+                        <p class="text-primary">SALES ORDERS</p>
+                    </div>
+                    <span>180</span>
+                </div>
+
+                <div class="card" id="third">
+                    <div class="innercard">
+                        <p class="text-primary">PURCHASE ORDERS</p>
+                    </div>
+                    <span>57</span>
+                </div>
+
+                <div class="card" id="fourth">
+                    <div class="innercard">
+                        <p class="text-primary">SUPPLIERS</p>
+                    </div>
+                    <span>16</span>
+                </div>
+           </div>
+
+           <div class="charts">
+            <div class="charts-card">
+                <p>Trend on sales</p>
+                <div id="bar-chart"></div>
+            </div>
+
+            <div class="charts-card">
+                <p>Total sales annually</p>
+                <div id="area-chart"></div>
+            </div>
+           </div>
+
+
+
+        </main>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js" integrity="sha512-yMnvLee1a5S9nemgCoMth5YvOchnQMFMOSao/bH6SLAXZnauuHs1gd92DnE9+sVQ5aglei3LZDelg8LauSlWkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/kgl/dashboard.js"></script>
+</body>
+</html>

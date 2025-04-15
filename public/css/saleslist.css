@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(235, 236, 235);
+}
+.container{
+    background-color: rgb(189, 198, 185);
+    border: 1px rgb(104, 103, 103) solid;
+    padding: 4px;
+    margin: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+table {
+    border: 2px black solid;
+   padding: 4px;
+   margin: 50px;
+  
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 5%;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333232;
+}
+
+th {
+    background-color: #f1f1f1;
+    text-align: left;
+}
+
+td:hover {
+    cursor: pointer;
+    background-color: #767272;
+}
+td{
+    background-color: #d3cdcd;
+}
+nav{
+    margin-left: 50%;
+}
+
+a {
+    color: grey  }
+
+ 

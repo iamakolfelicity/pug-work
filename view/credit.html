@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body >
+  <h1 >Credit fill in form </h1>
+<div class="container">
+    <form id="form" onsubmit="formValidation()">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+        <div class="mb-3">
+          <label for="firstName" class="form-label" > Name of creditor</label>
+          <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp">
+        </div>
+        </div>
+        <div class="col">        
+            <div class="mb-3">
+            <label for="national" class="form-label" id="national"> National ID </label>
+            <input type="text" class="form-control" id="lastName" aria-describedby="emailHelp">
+        </div>
+          </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label" id="location">Location</label>
+          <input type="email" class="form-control" id="locate" aria-describedby="emailHelp">
+
+        </div>
+        </div>
+        <div class="col">        
+            <div class="mb-3">
+            <label for="type" class="form-label" id="type"> Type of produce</label>
+            <input type="text" class="form-control" id="type" aria-describedby="emailHelp">
+        </div>
+          </div>
+        </div>
+        </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" id="book">Date of request</label>
+            <input type="date" class="form-control" id="date" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="container">
+            <div class="row">
+                <div class="col">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label" id="">Produce Name</label>
+          <input type="text" class="form-control" id="produce" aria-describedby="emailHelp">
+        </div>
+        </div>
+        <div class="col">        
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tonnage</label>
+            <input type="" class="form-control" id="tonnage" >
+        </div>
+          </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+        <div class="mb-3">
+          <label for="branch name" class="form-label">Sales Agent Name</label>
+          <input type="text" class="form-control" id="sales" >
+        </div>
+        </div>
+        
+           <div class="col">
+  <div class="mb-3">
+                <label for="contact" class="form-label">Contact (Valid Phone Number)</label>
+                <input type="tel" class="form-control" id="contact" pattern="[0-9]{10}" required>
+                <div class="form-text">Enter a 10-digit valid phone number.</div>
+              </div>
+            
+            </div>
+        </div>
+          
+        
+        
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" height="50px">Amount due</label>
+          <input type="number" class="form-control" id="text">
+        </div>
+    
+        
+
+       
+        <button type="submit" class="btn btn-primary " id="btn">Submit</button>
+      </form>
+
+
+
+
+    </div>
+</div>
+<br><hr>
+
+</div>
+
+
+
+<script src="./form.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

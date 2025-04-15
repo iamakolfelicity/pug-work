@@ -1,0 +1,49 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  link(rel='stylesheet' href='/css/css/bootstrap.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='/css/signin.css')
+  title KGL | Welcome
+body.beige
+  #main.container
+    .row
+      .col-md-5.text-center
+        h1 Welcome to Karibu Groceries Limited
+        br
+        br
+        p
+          | Karibu Groceries LTD is a wholesale produce distributor dealing in cereals with 2 branches in
+          | different locations. We seek out our produce from the hard work of our farmers and seek to provide our customers the very
+          | best from our motherland.
+      .col-md-7
+        #loginCard.card.border-primary
+          .card-header
+            h4.card-title Login
+          .card-body
+            form(action='/login' method='post' onsubmit='return validateForm();')
+              //- // Name
+              //- .mb-3
+              //-   label.form-label(for='name') Name
+              //-   input#name.form-control(type='text' name='name')
+              //-   #name-error.text-danger
+              //- // Email
+              .mb-3
+                label.form-label(for='email') Email address
+                input#email.form-control(type='email' name='email' aria-describedby='emailHelp')
+                #email-error.text-danger
+                #emailHelp.form-text We&apos;ll never share your email with anyone else.
+              // Password
+              .mb-3
+                label.form-label(for='pass') Password
+                input#pass.form-control(type='password' name='password')
+                #pass-error.text-danger
+              
+              // Remember Me
+              .mb-3.form-check
+                input#exampleCheck1.form-check-input(type='checkbox' name='remember')
+                label.form-check-label(for='exampleCheck1') Remember Me?
+              // Submit Button
+              button.btn.btn-primary(type='submit') Submit
+  script(src='/js/signin.js')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')

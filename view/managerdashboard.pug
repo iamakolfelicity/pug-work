@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Manager
+    link(rel='stylesheet' href='/css/manager.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet')
+
+  body
+    .grid-container
+      // Header
+      header.header
+        .menu(onclick='openSidebar()')
+          span#menu.material-icons-outlined menu
+        .header-left
+          nav.navbar.navbar-light.bg-light
+            form.form-inline
+              input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
+              button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        .header-right
+          span.material-icons-outlined email
+          span.material-icons-outlined notifications
+
+      // Sidebar
+      aside#sidebar.show
+        ul.list
+          li
+            h1 MENU
+          li
+            a(href="/dashboard")
+              span.material-icons-outlined dashboard
+              |  Dashboard
+          br
+          li
+            a(href="/")
+              span.material-icons-outlined home
+              |  Home
+          br
+          li
+            a(href="/userList")
+              span.material-icons-outlined groups
+              |  Users
+          br
+          li
+            a(href="/sales/registerSales")
+              span.material-icons-outlined note
+              |  Register Sales
+          br
+          li
+            a(href="/settings")
+              span.material-icons-outlined settings
+              |  Settings
+          br
+          br
+          li.logout
+            a(href="/logout")
+              span.material-icons-outlined logout
+              |  Log out
+
+      // Main content
+      main#main
+        h1 Manager Dashboard
+
+        .main-card
+          #first.card
+            .card-inner
+              h3 PRODUCE
+              span.material-icons-outlined shopping_bag
+            h1 5
+
+          #second.card
+            .card-inner
+              h3 COMPANIES
+              span.material-icons-outlined store
+            h1 300
+
+          #third.card
+            .card-inner
+              h3 CUSTOMERS
+              span.material-icons-outlined groups
+            h1 30
+
+          #fourth.card
+            .card-inner
+              h3 ALERTS
+              span.material-icons-outlined warning
+            h1 23
+
+        // Charts section
+        .charts
+          .chart-cards
+            h2.chart-title Turnover rates of produce
+            #bar-chart
+
+          .chart-cards
+            h2.chart-title Turnover share by category
+            #pie-chart
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js')
+    script(src='/js/manager.js')

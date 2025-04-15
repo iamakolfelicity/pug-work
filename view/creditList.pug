@@ -1,0 +1,39 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Creditor's List
+  link(rel='stylesheet' href='/css/creditList.css')
+.container
+   nav.navbar.navbar-expand-lg.bg-body-tertiary
+    .container-fluid
+      a.navbar-brand(href='#') Home
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='#') Dashboard
+          li.nav-item
+            a.nav-link(href='#') My account
+          li.nav-item
+            a.nav-link.disabled(aria-disabled='true') Sign out
+  table
+    thead
+      th Customer Name
+      th Produce Name
+      th Quantity
+      th Amount Due(shs)
+      th Phone Number
+      th Date
+    tbody
+     if creditors.length
+        each creditor in creditors
+          tr
+            td #{creditor.name}
+            td #{creditor.produce}
+            td #{creditor.tonnage}
+            td #{creditor.amount}
+            td #{creditor.contact}
+            td #{creditor.date}
+

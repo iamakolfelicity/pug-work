@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produce Registration</title>
+    <link rel="stylesheet" href="/css/produce.css" />
+    <link rel="stylesheet" href="/css/css/bootstrap.css" />
+</head>
+<body>
+
+<div class="container mt-5">
+    <form action="/new-produce" method="post" onsubmit="return formValidate(event);">
+        <h1 class="mb-4">PRODUCE REGISTRATION FORM</h1>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="produceName" class="form-label">Produce Name</label>
+                <input type="text" class="form-control" id="produceName">
+                <span id="name-error" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label for="produceType" class="form-label">Produce Type</label>
+                <input type="text" class="form-control" id="produceType">
+                <span id="type-error" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="tonnage" class="form-label">Tonnage</label>
+                <input type="number" class="form-control" id="tonnage">
+                <span id="tonnage-error" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label for="amount" class="form-label">Total Amount</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter amount paid">
+                <span id="amount-error" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="branch" class="form-label">Branch</label>
+                <input type="text" class="form-control" id="branch">
+                <span id="branch-error" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label for="date" class="form-label">Date of Delivery</label>
+                <input type="date" class="form-control" id="date">
+                <span id="date-error" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label for="sales" class="form-label">Sales person name</label>
+                <input type="text" class="form-control" id="sales">
+                <span id="sales-error" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/js/bootstrap.bundle.js"></script>
+<script src="/js/produce.js"></script>
+</body>
+</html>

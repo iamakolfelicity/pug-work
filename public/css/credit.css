@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(235, 236, 235);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p, label, input, select, button, table {
+    color: black;
+}
+
+form {
+    background-color: rgb(189, 198, 185);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+input, select, textarea {
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: black;
+}
+
+button {
+    background-color: green;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+     margin-left: 40%;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.error{
+    color: red;
+}

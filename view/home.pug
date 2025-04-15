@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Karibu Groceries Limited
+  link(rel='stylesheet' href='/css/today.css')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+h1.heading.text-center KARIBU GROCERIES LIMITED
+br
+.container.mt-4
+  .row
+    .col
+      h4
+        | Welcome to Karibu Groceries Limited! We&apos;re thrilled to have you here.
+      hr
+      p
+        | At Karibu, we pride ourselves on providing fresh, high-quality products that cater to your everyday needs.
+        | Whether you&apos;re looking for farm-fresh produce or pantry essentials, we&apos;ve got you covered.
+      p
+        | Thank you for choosing Karibu Groceries Limited&mdash;where quality and customer satisfaction are our top priorities.
+        | Explore our store and let us bring the best of the market to you!
+    .col
+      #carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
+        .carousel-inner
+          .carousel-item.active
+            img.d-block.mx-auto(src='https://i.pinimg.com/474x/0e/17/a7/0e17a7934f081e06ec7648dbe1117230.jpg' height='400px' width='400px')
+          .carousel-item
+            img.d-block.mx-auto(src='https://i.pinimg.com/736x/88/b5/4d/88b54d96d591e6727186775099ead63b.jpg' height='400px' width='400px')
+          .carousel-item
+            img.d-block.mx-auto(src='https://i.pinimg.com/474x/44/8b/78/448b784725594bebf9d29c90474692ae.jpg' height='400px' width='400px')
+    p
+      | Sign in to view your account 
+      a(href="/signin") Sign in
+script(src='/js/today.js')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')

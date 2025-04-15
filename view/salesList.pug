@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/saleslist.css')
+.container
+  nav.navbar.navbar-expand-lg.bg-body-tertiary
+    .container-fluid
+      a.navbar-brand(href='/') Home
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='/sales/registerSales') Sales registration
+          li.nav-item
+            a.nav-link(href='#') My account
+            li.nav-item
+            a.nav-link(href='/') Log out
+          li.nav-item
+            a.nav-link.disabled(aria-disabled='true') Sales List
+  table
+    thead
+      th Customer Name
+      th Produce Name
+      th Quantity
+      th Amount(shs)
+      th Sales Agent
+      th Date
+      th Update
+      th Delete
+    tbody
+     if sales.length
+        each sale in sales
+          tr
+            td #{sale.buyerName}
+            td #{sale.produceName}
+            td #{sale.quantity}
+            td #{sale.amount}
+            td #{sale.agentName}
+            td #{moment(sale.date).format("DD-MM-YYYY")}
+            td
+              a.btn.btn-primary.btn-block(href="/sales/updateSale/"+sale._id) Update
+            td 
+              form(action="/sales/deleteSale" method="post")
+               input(type="hidden" name="id" value=sale._id)
+               button.btn.btn-danger.btn-block(type="submit") Delete
+
+
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
+
+
+
+
+
+  
