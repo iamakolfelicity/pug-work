@@ -6,14 +6,18 @@ const salesSchema= new mongoose.Schema({
     trim: true,
   },  
   produceName:{
-    type: String,
-    trim: true,
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Produce'    
   },
   quantity:{
-    type: String,
+    type: Number,
     trim: true,
   },
   amount:{
+    type: Number,
+    trim: true,
+  },
+  price:{
     type: Number,
     trim: true,
   },

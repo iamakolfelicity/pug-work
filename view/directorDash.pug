@@ -1,82 +1,83 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Dashboard
-  link(rel='stylesheet' href='/css/dashboard.css')
-  link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet')
-.grid-container
-  // Header
-  header.header
-    .header-left
-      nav.navbar.navbar-light.bg-light
-        form.form-inline
-          input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-    .header-right
-      span.material-icons-outlined notifications
-      span.material-icons-outlined account_circle
-  // Sidebar
-  aside#sidebar
-    h3 MENU
-    ul.list
-      li
-        span.material-icons-outlined dashboard
-        |  Dashboard
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Dashboard
+    link(rel='stylesheet' href='/css/dashboard.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet')
+
+  .grid-container
+    // Header
+    header.header
+      .header-left
+        nav.navbar.navbar-light.bg-light
+          form.form-inline
+            input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
+            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+      .header-right
+        span.material-icons-outlined notifications
+        span.material-icons-outlined account_circle
+
+    
+    aside#sidebar.show
+        ul.list
+          li
+            h1 MENU
+          li
+            a(href="/directorDashboard")
+              span.material-icons-outlined dashboard
+              |  Dashboard
+          br
+          li
+            a(href="/")
+              span.material-icons-outlined home
+              |  Home
+          br
+          li
+            a(href="/userList")
+              span.material-icons-outlined groups
+              |  Users
+          br
+          li
+            a(href="/settings")
+              span.material-icons-outlined settings
+              |  Settings
+          br
+          br
+          li.logout
+            a(href="/logout")
+              span.material-icons-outlined logout
+              |  Log out
+    // Main Content
+    main.main-container
+      .main-title
       br
-      br
-      li
-        span.material-icons-outlined home
-        |  Home
-      br
-      br
-      li
-        span.material-icons-outlined groups
-        |  Users
-      br
-      br
-      li
-        span.material-icons-outlined note
-        |  Notes
-      br
-      br
-      li
-        span.material-icons-outlined settings
-        |  Settings
-      br
-      br
-      br
-      br
-      li.logout
-        span.material-icons-outlined logout
-        |  Logout
-  // Main Content
-  main.main-container
-    .main-title
-    br
-    .main-card
-      #first.card
-        .innercard
-          p.text-primary TOTAL SALES
-        span 5900
-      #second.card
-        .innercard
-          p.text-primary PURCHASE ORDERS
-        span 180
-      #third.card
-        .innercard
-          p.text-primary PROFIT
-        span 57
-      #fourth.card
-        .innercard
-          p.text-primary SUPPLIERS
-        span 16
-    .charts
-      .charts-card
-        p Trend on sales
-        #bar-chart
-      .charts-card
-        p Total sales annually
-        #area-chart
-script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js' integrity='sha512-yMnvLee1a5S9nemgCoMth5YvOchnQMFMOSao/bH6SLAXZnauuHs1gd92DnE9+sVQ5aglei3LZDelg8LauSlWkw==' crossorigin='anonymous' referrerpolicy='no-referrer')
-script(src='/js/dashboard.js')
+      .main-card
+        #first.card
+          .innercard
+            p.text-primary TOTAL SALES
+          span #{totalRevenue.totalSale}
+        #second.card
+          .innercard
+            p.text-primary TOTAL TONNES SOLD
+          span #{totalRevenue.totalQuantitySold}
+        #third.card
+          .innercard
+            p.text-primary PROFIT
+          span 57
+        #fourth.card
+          .innercard
+            p.text-primary CREDITORS
+          span 16
+
+      .charts
+        .charts-card
+          p Trend on sales
+          #bar-chart
+        .charts-card
+          p Total sales annually
+          #area-chart
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js' integrity='sha512-yMnvLee1a5S9nemgCoMth5YvOchnQMFMOSao/bH6SLAXZnauuHs1gd92DnE9+sVQ5aglei3LZDelg8LauSlWkw==' crossorigin='anonymous' referrerpolicy='no-referrer')
+  script(src='/js/dashboard.js')

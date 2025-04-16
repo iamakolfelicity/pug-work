@@ -39,9 +39,12 @@ html
             label(for='produceName') Produce Name
             input#produceName.form-control(type='text' name='produceName' placeholder='Produce name')
             span#produceNameError.text-danger
-
           .mb-3
-            label(for='quantity') Quantity Purchased
+            label(for='price') Price per kg
+            input#price.form-control(type='number' name='price' placeholder='Price per kg')
+            span#priceError.text-danger
+          .mb-3
+            label(for='quantity') Quantity Purchased(in kgs)
             input#quantity.form-control(type='number' name='quantity' placeholder='Tonnes in kgs')
             span#quantityError.text-danger
 

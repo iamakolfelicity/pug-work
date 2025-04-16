@@ -16,7 +16,10 @@ const produceSchema= new mongoose.Schema({
   
   amount:{
     type: Number,
-    trim: true,
+    trim: true,},
+  unitCost:{
+      type: Number,
+      trim: true,
   },
   branch:{
     type: String,

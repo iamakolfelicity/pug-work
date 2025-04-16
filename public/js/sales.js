@@ -9,6 +9,7 @@ function formValidate() {
     const branch = document.getElementById("branch").value.trim();
     const date = document.getElementById("date").value.trim();
     const time = document.getElementById("time").value.trim();
+    const price = document.getElementById("price").value.trim();
     const agent = document.getElementById("agentName").value.trim();
   
     // Grab error spans
@@ -20,6 +21,7 @@ function formValidate() {
     const dateError = document.getElementById("dateError");
     const timeError = document.getElementById("timeError");
     const agentError = document.getElementById("agentError");
+    const priceError = document.getElementById("priceError");
   
     // Clear errors
     buyerNameError.textContent = "";
@@ -30,6 +32,8 @@ function formValidate() {
     dateError.textContent = "";
     timeError.textContent = "";
     agentError.textContent = "";
+    priceError.textContent = "";
+  
   
     // Validate Buyer's Name
     if (buyerName === "" || /\d/.test(buyerName) || buyerName.length < 2) {
@@ -46,6 +50,11 @@ function formValidate() {
     // Validate Quantity
     if (quantity === "" || isNaN(quantity) || Number(quantity) <= 0) {
       quantityError.textContent = "Enter a valid quantity (positive number).";
+      isValid = false;
+    }
+     // Validate price
+     if (price === "" || isNaN(price) || Number(price) <= 0) {
+      priceError.textContent = "Enter a valid price (positive number).";
       isValid = false;
     }
   

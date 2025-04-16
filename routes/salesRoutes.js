@@ -9,6 +9,7 @@ router.get("/registerSales",(req,res) =>{
 })
 
 router.post("/registerSales",async(req,res) =>{
+  
   try {
     const sale = new Sale(req.body)
     console.log(sale);
@@ -18,7 +19,7 @@ router.post("/registerSales",async(req,res) =>{
     res.status(400).render("sales")
     console.log(error)
   }
-   
+
 })
 
 //getting from db to list
