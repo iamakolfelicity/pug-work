@@ -46,7 +46,7 @@ var barChartOptions = {
 var options = {
     series: [{
     name: 'Matugga',
-    type: 'area',
+    type: 'line',
     data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33],   
   }, {
     name: 'Maganjo',
@@ -63,10 +63,8 @@ var options = {
   stroke: {
     curve: 'smooth'
   },
-  fill: {
-    type:'solid',
-    opacity: [0.35, 1],
-  },
+
+
   labels: ['Jan', 'Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov'],
   markers: {
     size: 0

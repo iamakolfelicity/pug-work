@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p, label, input, select, button, table {
     color: black;
 }
 
-form {
+form{
     background-color: rgb(189, 198, 185);
     padding: 20px;
     border-radius: 8px;
@@ -44,4 +44,29 @@ button:hover {
 
 .error{
     color: red;
+}
+nav{
+    background-color: rgb(189, 198, 185);
+    color: white;
+} 
+.navbar {
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e68a00 !important;
+}
+
+.nav-link {
+    color: #151515 !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffa733 !important;
 }

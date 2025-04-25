@@ -4,6 +4,7 @@
     margin: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    background-color: rgb(189, 198, 185);
 }
 
 table {
@@ -14,6 +15,7 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     border-radius: 5%;
+    background-color: rgb(236, 238, 236);
 }
 
 th, td {
@@ -22,13 +24,32 @@ th, td {
 }
 
 th {
-    background-color: #f1f1f1;
+    background-color: #928f8f;
     text-align: left;
 }
 
 td:hover {
     background-color: #5e5b5b;
 }
-nav{
-    margin-left: 50%;
+
+.navbar {
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e68a00 !important;
+}
+
+.nav-link {
+    color: #383736 !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffa733 !important;
 }

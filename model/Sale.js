@@ -31,8 +31,8 @@ const salesSchema= new mongoose.Schema({
     default: Date.now 
   },
 agentName:{
-    type: String,
-    trim: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'Signup'   
 }
 })
 module.exports = mongoose.model('Sale', salesSchema);

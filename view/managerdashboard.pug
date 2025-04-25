@@ -11,24 +11,16 @@ html
     .grid-container
       // Header
       header.header
-        .menu(onclick='openSidebar()')
-          span#menu.material-icons-outlined menu
-        .header-left
-          nav.navbar.navbar-light.bg-light
-            form.form-inline
-              input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
-              button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-        .header-right
-          span.material-icons-outlined email
-          span.material-icons-outlined notifications
-
+        .header.left
+          span KARIBU GROCERIES LIMITED
+        
       // Sidebar
       aside#sidebar.show
         ul.list
           li
             h1 MENU
           li
-            a(href="/dashboard")
+            a(href="/managerDashboard")
               span.material-icons-outlined dashboard
               |  Dashboard
           br

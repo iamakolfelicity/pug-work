@@ -4,11 +4,33 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Produce Registration
-    link(rel='stylesheet', href='/css/produce.css')
+    link(rel='stylesheet', href='/css/credit.css')
     link(rel='stylesheet', href='/css/css/bootstrap.css')
   body
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     .container.mt-5
-      form(action='/products/addProduct',method='post',onsubmit='return formValidate()',enctype='multipart/form-data'
+      form(action='/products/addProduct',method='post',onsubmit=' return formValidate()',enctype='multipart/form-data'
       )
         h1.mb-4 PRODUCE REGISTRATION FORM
 
@@ -49,17 +71,18 @@ html(lang='en')
             span#date-error.text-danger
           .col
             label.form-label(for='time') Time of Delivery
-            input#time.form-control(type='time', name='time', )
+            input#time.form-control(type='time', name='time' )
             span#time-error.text-danger
 
         .row.mb-3
           .col
             label.form-label(for='dealerName') Dealer's Name
-            input#dealerName.form-control(type='text', name='dealerName', )
+            input#dealerName.form-control(type='text', name='dealerName')
             span#sales-error.text-danger
           .col
             label.form-label(for='phone') Phone Number
             input#phone.form-control(type='text', name='phone_number', placeholder='Enter phone number')
+            span#phone-error.text-danger
           .col
             label.form-label(for='image') Produce Image
             input#image.form-control(type='file', name='image')

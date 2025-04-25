@@ -23,28 +23,32 @@ head
             a.nav-link.disabled(aria-disabled='true') Sales List
   table
     thead
+      th Image
       th Produce Name
       th Produce Type
       th Quantity procured
-      th Amount(shs)
+      th selling price(shs)
       th Dealers name
       th Date
       th Update
+      th Sale
       th Delete
     tbody
      if produce.length
         each product in produce
           tr
             td
-              img(src='/' + user.image, width='80', height='80', style="object-fit: cover; border-radius: 5px")
+              img(src='/' + product.image, width='80', height='80', style="object-fit: cover; border-radius: 5px")
             td #{product.produceName}
             td #{product.produceType}
             td #{product.tonnage}
-            td #{product.amount}
+            td #{product. unitCost}
             td #{product.dealerName}
             td #{moment(produce.date).format("DD-MM-YYYY")}
             td
               a.btn.btn-primary.btn-block(href="products/addProducts"+produce._id) Update
+            td
+              a.btn.btn-primary.btn-block(href="sales/registerSale"+produce._id) Sale
             td 
               form(action="/products/deleteproduce" method="post")
                input(type="hidden" name="id" value=produce._id)

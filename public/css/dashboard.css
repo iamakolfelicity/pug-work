@@ -29,20 +29,61 @@ body{
    
  }
  
- #sidebar{
-     grid-area: sidebar;
-     height:100%;
-     background-color: rgb(121, 177, 121);
-     
- }
- 
- .list{
- list-style: none;
- }
- 
- ul.list {
-    margin-bottom: 100px;
+ #sidebar {
+    grid-area: sidebar;
+    background-color: #79b179; /* keeping your green theme */
+    padding: 20px 10px;
+    color: #ffffff;
+    overflow-y: auto;
+    transition: width 0.3s ease-in-out;
+  }
   
+  #sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+  }
+  
+  #sidebar ul {
+    padding: 0;
+  }
+  
+  #sidebar ul li {
+    list-style: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  #sidebar ul li:hover {
+    background-color: #5f9761;
+  }
+  
+  #sidebar ul li a {
+    text-decoration: none;
+    color: #0a0a0a;
+    display: flex;
+    align-items: center;
+  }
+  
+  .material-icons-outlined {
+    margin-right: 10px;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  /* Logout styling */
+  .logout {
+    margin-top: 20px;
+  }
+  
+  .logout a {
+    color: #ffdd57; /* golden shade for visibility */
   }
  h3{
      margin-left: 7%;

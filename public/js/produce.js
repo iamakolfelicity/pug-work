@@ -81,6 +81,10 @@ function formValidate() {
       dealerErr.textContent = "Please enter a valid dealer name.";
       isValid = false;
     }
+    if (phone === "" || !/^\d{10}$/.test(phone)) {
+      phoneErr.textContent = "Please enter a valid 10-digit phone number.";
+      isValid = false;
+    }
   
    
   

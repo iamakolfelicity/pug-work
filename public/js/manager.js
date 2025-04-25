@@ -72,5 +72,8 @@ var barOptions = {
   var chart = new ApexCharts(document.querySelector("#pie-chart"), pieOptions);
   chart.render();
 
+ const search =() =>{
+  const searchbox = document.getElementById("searchItem").ariaValueMax.toUpperCase();
+  const items = document.getElementById
 
-
+ }
