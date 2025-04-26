@@ -29,7 +29,7 @@ html
 
       // Registration Form
       .container.mb-4
-        form#registrationForm(onsubmit='return formValidate()' method='post' action='/sales/registerSales')
+        form#registrationForm(onsubmit='return formValidate()' method='post' action='/sales/registerSales/_id')
           h2#h2 Sales Registration Form
 
           .mb-3
@@ -40,8 +40,8 @@ html
           .mb-3
             label(for='products') Product to Purchase:
             select#products(name='product')
-            option(value=produce._id) #{produce.produceName} 
-             span#produceNameError.text-danger
+              option(value=produce._id) #{produce.produceName} 
+            span#produceNameError.text-danger
           .mb-3
             label(for='price') Price per kg
             input#price.form-control(type='number' name='price' placeholder='Price per kg')

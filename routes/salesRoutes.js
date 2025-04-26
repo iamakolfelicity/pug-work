@@ -37,22 +37,22 @@ router.post(
       req.session.user.position === "manager"
     ) {
       try {
-        const { tonnage } = req.body;
+        const { amount } = req.body;
         const produce = await Produce.findById({ _id: req.params.id });
         if (!produce) {
-          return res.status(404).send("Prooduce not found ");
+          return res.status(404).send("Produce not found ");
         }
-        if (produce.tonnage < tonnage) {
+        if (produce.tonnage < amount) {
           return res
             .status(400)
             .send(
               `Not enough stock available , there are ${produce.tonnage} kgs in stock`
             );
         }
-        if (produce && pproduce.tonnage > 0) {
+        if (produce && produce.tonnage > 0) {
           const saleMade = new Sale({
             produceName: req.body.produceName,
-            tonnage: req.body.tonnage,
+            amount: req.body.amount,
             price: req.body.price,
             amount: req.body.amount,
             buyerName: req.body.buyerName,
@@ -62,9 +62,9 @@ router.post(
           });
           await saleMade.save();
           //decrease sales
-          produce.tonnage -= tonnage;
-          console.log("new storage after sale", produce.tonnage);
-          await produce.save();
+          // produce.tonnage -= amount;
+          // console.log("new storage after sale", produce.tonnage);
+          // await produce.save();
 
           res.redirect("salesList");
         } else {
@@ -92,10 +92,7 @@ router.get("/salesList", async (req, res) => {
     res.render("salesList", {
       sales: items,
     });
-    //const maganjoSales = items.filter((sale)=>sale.produceName?.branch ==="Maganjo");
-    // res.render("salesList",{
-    //   title:"Sales list",
-    //   sales: items
+
   } catch (error) {
     res.status(400).send("unable to find items in the database ");
   }

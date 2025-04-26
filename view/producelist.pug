@@ -46,12 +46,12 @@ head
             td #{product.dealerName}
             td #{moment(produce.date).format("DD-MM-YYYY")}
             td
-              a.btn.btn-primary.btn-block(href="products/addProducts"+produce._id) Update
+              a.btn.btn-primary.btn-block(href="/products/update"+product._id) Update
             td
-              a.btn.btn-primary.btn-block(href="sales/registerSale"+produce._id) Sale
+              a.btn.btn-primary.btn-block(href="/sales/registerSales/"+product._id) Sale
             td 
               form(action="/products/deleteproduce" method="post")
-               input(type="hidden" name="id" value=produce._id)
+               input(type="hidden" name="id" value=product._id)
                button.btn.btn-danger.btn-block(type="submit") Delete
 
 

@@ -63,7 +63,7 @@ res.redirect("/salesAgentDashboard")
    else if(req.user.position==="manager"){
       res.redirect("/managerDashboard")
          }else{
-            res.send("You do not have any role in the sysytem ")
+            res.send("You do not have any role in the sytem ")
          }
 })
 //the roles are the values of the input not what appears at user interface
