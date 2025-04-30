@@ -58,7 +58,7 @@ router.post("/login",passport.authenticate('local',{failureRedirect:"/login"}),(
      res.redirect("/DirectorDashboard") 
    }
    else if(req.user.position==="sales_agent"){
-res.redirect("/salesAgentDashboard")
+res.redirect("/products/producelist")
    }
    else if(req.user.position==="manager"){
       res.redirect("/managerDashboard")

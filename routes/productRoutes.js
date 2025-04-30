@@ -45,4 +45,31 @@ router.get("/producelist",async(req,res) =>{
    }
  })
 
+ //update Produce
+ router.get("/updateProduce/:id",upload.single('image'), async (req, res) => {
+  
+   try {
+     const updateProduce = await Produce.findOne({ _id: req.params.id });
+     res.render("updateProduce", { produce: updateProduce });
+   } catch (error) {
+     res.status(400).send("unable to find this item in the database ");
+   }
+ });
+ 
+ router.post("/updateProduce/:id", upload.single('image'), async (req, res) => {
+  try {
+    const updateData = { ...req.body };
+    if (req.file) {
+      updateData.imagePath = req.file.path;
+    }
+    await Produce.findOneAndUpdate({ _id: req.params.id }, updateData);
+    res.redirect("/products/producelist");
+  } catch (error) {
+    res.status(400).send("Unable to update item in the DataBase");
+  }
+});
+
+ 
+ 
+
 module.exports = router;

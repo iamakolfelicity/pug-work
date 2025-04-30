@@ -1,0 +1,73 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Produce Registration
+    link(rel='stylesheet', href='/css/credit.css')
+    link(rel='stylesheet', href='/css/css/bootstrap.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light
+      a.navbar-brand(href='/products/addProduct') Add Produce
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarNav
+        ul.navbar-nav
+          li.nav-item.active
+            a.nav-link(href='/products/producelist') View Produce 
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/') Log Out
+
+    .container.mt-5
+      form(
+        action=`/products/updateProduce/${produce._id}`,
+        method='post',
+        onsubmit='return formValidate()',
+        enctype='multipart/form-data'
+      )
+        h1.mb-4 PRODUCE UPDATE FORM
+
+        .row.mb-3
+          .col
+            label.form-label(for='produceName') Produce Name
+            input#produceName.form-control(type='text', name='produceName', value=produce.produceName)
+            small#name-error.text-danger
+          .col
+            label.form-label(for='produceType') Produce Type
+            input#produceType.form-control(type='text', name='produceType', value=produce.produceType)
+            small#type-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='tonnage') Tonnage
+            input#tonnage.form-control(type='number', name='tonnage', value=produce.tonnage)
+            small#tonnage-error.text-danger
+          .col
+            label.form-label(for='amount') Unit price
+            input#amount.form-control(type='number', name='amount', placeholder='Enter amount paid', value=produce.unitCost)
+            small#amount-error.text-danger
+
+        .row.mb-3
+          .col
+            label.form-label(for='dealerName') Dealer's Name
+            input#dealerName.form-control(type='text', name='dealerName', value=produce.dealerName)
+            small#sales-error.text-danger
+          .col
+            label.form-label(for='phone') Phone Number
+            input#phone.form-control(type='text', name='phone_number', placeholder='Enter phone number', value=produce.phone_number)
+            small#phone-error.text-danger
+          .col
+            label.form-label(for='image') Produce Image
+            if produce.imagePath
+              img(src='/' + produce.imagePath, alt='Current image', width='120', height='120', style='object-fit: cover; margin-bottom: 10px; border-radius: 5px')
+            input#image.form-control(type='file', name='image')
+            small#image-error.text-danger
+
+        .row
+          .col
+            button.btn.btn-success(type='submit') Update
+
+    script(src='/js/js/bootstrap.bundle.js')
+    script(src='/js/updateproduce.js')

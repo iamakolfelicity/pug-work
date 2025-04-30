@@ -10,10 +10,13 @@ const produceSchema= new mongoose.Schema({
     trim: true,
   },
   tonnage:{
-    type: String,
+    type: Number,
     trim: true,
   },
-  
+  phone_number: {
+    type: Number,  // Changed to String for better handling of phone numbers
+    trim: true
+  },
   amount:{
     type: Number,
     trim: true,},

@@ -31,6 +31,9 @@ th {
 td:hover {
     background-color: #5e5b5b;
 }
+.navbar.navbar-expand-lg.bg-body-tertiary {
+   
+    background-color:rgb(189, 198, 185)!important;}
 
 .navbar {
     font-family: 'Georgia', serif;

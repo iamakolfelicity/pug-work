@@ -5,9 +5,11 @@ const salesSchema= new mongoose.Schema({
     type: String,
     trim: true,
   },  
-  produceName:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Produce'    
+  product:{
+    type:String,
+    trim:true,
+    //type:mongoose.Schema.Types.ObjectId,
+    //ref:'Produce'    
   },
   quantity:{
     type: Number,
@@ -31,8 +33,10 @@ const salesSchema= new mongoose.Schema({
     default: Date.now 
   },
 agentName:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref:'Signup'   
+  type:String,
+  trim: true
+   // type: mongoose.Schema.Types.ObjectId,
+   // ref:'Signup'   
 }
 })
 module.exports = mongoose.model('Sale', salesSchema);

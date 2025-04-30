@@ -11,7 +11,7 @@ const creditorSchema = new mongoose.Schema({
         trim: true,
        // required: true
     },
-    branch: {
+    location: {
         type: String,
         trim: true,
        // required: true
