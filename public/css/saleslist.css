@@ -37,10 +37,10 @@ th {
     text-align: left;
 }
 
-td:hover {
-    cursor: pointer;
-    background-color: #767272;
-}
+tr:hover td {
+    background-color: #a5a8ab;
+    color: white;
+    cursor: pointer;}
 td{
     background-color: #d3cdcd;
 }

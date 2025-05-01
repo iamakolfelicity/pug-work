@@ -17,8 +17,6 @@ body
             li.nav-item
               a.nav-link.active(aria-current='page' href='/sales/registerSales') Sales registration
             li.nav-item
-              a.nav-link(href='/products/addProduct') Add Produce
-            li.nav-item
               a.nav-link(href='#') My account
             li.nav-item
               a.nav-link(href='/') Log out
@@ -33,9 +31,8 @@ body
           th Produce Type
           th Quantity Procured
           th Selling Price (shs)
+          th Dealer's Name
           th Date
-          th Update
-          th Sale
           th Delete
       tbody
         if produce.length
@@ -47,15 +44,8 @@ body
               td #{product.produceType}
               td #{product.tonnage}
               td #{product.unitCost}
+              td #{product.dealerName}
               td #{moment(product.date).format("DD-MM-YYYY")}
-              td
-                a.btn.btn-sm.btn-outline-primary.d-flex.align-items-center.justify-content-center(href="/products/updateProduce/" + product._id)
-                  i.bi.bi-pencil-square.me-1
-                  | Update
-              td
-                a.btn.btn-sm.btn-outline-success.d-flex.align-items-center.justify-content-center(href="/sales/registerSales/" + product._id)
-                  i.bi.bi-cart-plus.me-1
-                  | Sale
               td 
                 form(d="inline" action="/products/deleteproduce" method="post")
                   input(type="hidden" name="id" value=product._id)

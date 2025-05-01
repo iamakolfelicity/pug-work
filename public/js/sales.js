@@ -90,4 +90,20 @@ function formValidate() {
   
     return isValid;
   }
-  
+
+  function calculateAmount(){
+    const priceInput =document.getElementById('price')
+    const quantityInput= document.getElementById('quantity')
+    const amountInput = document.getElementById('amount');
+
+    const price = parseFloat(priceInput.value)// each input isconverted to a number using parseFloat()
+    const quantity = parseFloat(quantityInput.value)
+   
+    if(!isNaN(price) && !isNaN(quantity)){
+      const amount = price * quantity;
+       amountInput.value= amount.toFixed(1);
+    }else{
+      amountInput.value = '';
+    }
+
+  }

@@ -13,7 +13,7 @@ html
       header.header
         .header.left
           span KARIBU GROCERIES LIMITED
-        
+
       // Sidebar
       aside#sidebar.show
         ul.list
@@ -25,9 +25,9 @@ html
               |  Dashboard
           br
           li
-            a(href="/")
-              span.material-icons-outlined home
-              |  Home
+             a(href="/products/procurementList")
+              span.material-icons-outlined inventory_2
+              |  Procurement List
           br
           li
             a(href="/userList")
@@ -35,15 +35,14 @@ html
               |  Users
           br
           li
-            a(href="/sales/registerSales")
+            a(href="/creditRegister")
               span.material-icons-outlined note
-              |  Register Sales
+              |  Creditors
           br
           li
-            a(href="/settings")
-              span.material-icons-outlined settings
-              |  Settings
-          br
+            a(href="/products/addProduct")
+              span.material-icons-outlined add
+              |  Add Produce
           br
           li.logout
             a(href="/logout")
@@ -88,6 +87,6 @@ html
           .chart-cards
             h2.chart-title Turnover share by category
             #pie-chart
-   
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js')
     script(src='/js/manager.js')

@@ -48,12 +48,12 @@ html
 
           .mb-3
             label(for='quantity') Quantity Purchased(in kgs)
-            input#quantity.form-control(type='number' name='quantity' placeholder='Tonnes in kgs')
+            input#quantity.form-control(type='number' name='quantity' placeholder='Tonnes in kgs' oninput='calculateAmount()')
             span#quantityError.text-danger
 
           .mb-3
             label(for='amount') Amount Paid in UGX
-            input#amount.form-control(type='number' name='amount' placeholder='Amount')
+            input#amount.form-control(type='number' name='amount' placeholder='Amount' readonly)
             span#amountError.text-danger
 
           .mb-3

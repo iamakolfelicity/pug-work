@@ -100,26 +100,32 @@ router.get("/salesList", async (req, res) => {
   }
 });
 //update sale
+// GET: 
 router.get("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-  const user= req.session.user;
-  if (req.user && req.user.role === 'manager'){
-  try {
-    const updateSale = await Sale.findOne({ _id: req.params.id });
-    res.render("updatesale", { sale: updateSale });
-  } catch (error) {
-    res.status(400).send("unable to find this item in the database ");
-  }}
+  if (req.user.role === 'manager') {
+    try {
+      const updateSale = await Sale.findOne({ _id: req.params.id });
+      res.render("updatesale", { sale: updateSale });
+    } catch (error) {
+      res.status(400).send("Unable to find this item in the database.");
+    }
+  } else {
+    res.status(403).send("Access denied. Managers only.");
+  }
 });
 
-router.post("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(),async (req, res) => {
-  const user= req.session.user;
-  if (req.user && req.user.role === 'manager'){
-  try {
-    await Sale.findOneAndUpdate({ _id: req.params.id }, req.body);
-    res.redirect("/sales/salesList");
-  } catch (error) {
-    res.status(400).send("unable to find this item in the database ");
-  }}
+
+router.post("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  if ( req.user.role === 'manager') {
+    try {
+      await Sale.findOneAndUpdate({ _id: req.params.id }, req.body);
+      res.redirect("/sales/salesList");
+    } catch (error) {
+      res.status(400).send("Unable to update this item.");
+    }
+  } else {
+    res.status(403).send("Access denied. Managers only.");
+  }
 });
 
 router.post(

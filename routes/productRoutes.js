@@ -33,7 +33,7 @@ router.post("/addProduct", upload.single("image"), async (req, res) => {
     return res.status(400).render("produce", { error: "Failed to save product." });
   }
 });
-//to list
+//to list of producelist
 router.get("/producelist",async(req,res) =>{
    try {
      let items= await Produce.find()
@@ -44,6 +44,18 @@ router.get("/producelist",async(req,res) =>{
    res.status(400).send("unable to find items in the database ")  
    }
  })
+
+ //to list of procurement
+ router.get("/procurementlist",async(req,res) =>{
+  try {
+    let items= await Produce.find()
+    res.render("procurement",{
+      produce:items
+    })
+  } catch (error) {
+  res.status(400).send("unable to find items in the database ")  
+  }
+})
 
  //update Produce
  router.get("/updateProduce/:id",upload.single('image'), async (req, res) => {
