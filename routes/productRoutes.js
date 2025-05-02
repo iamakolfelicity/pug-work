@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer =require ("multer")
 const path =require("path")
+const connectEnsureLogin = require("connect-ensure-login")
 //import model
 const Produce= require('../model/Produce')
 
@@ -34,11 +35,13 @@ router.post("/addProduct", upload.single("image"), async (req, res) => {
   }
 });
 //to list of producelist
-router.get("/producelist",async(req,res) =>{
-   try {
-     let items= await Produce.find()
+router.get("/producelist",connectEnsureLogin.ensureLoggedIn() ,async(req,res) =>{
+  const user = req.session.user;  
+  try {
+     let items= await Produce.find({ branch: user.branch })
      res.render("producelist",{
-       produce:items
+       produce:items,
+       currentUser: user,
      })
    } catch (error) {
    res.status(400).send("unable to find items in the database ")  
@@ -46,11 +49,13 @@ router.get("/producelist",async(req,res) =>{
  })
 
  //to list of procurement
- router.get("/procurementlist",async(req,res) =>{
+ router.get("/procurementlist",connectEnsureLogin.ensureLoggedIn() ,async(req,res) =>{
+  const user = req.session.user;  
   try {
-    let items= await Produce.find()
+    let items= await Produce.find({ branch: user.branch })
     res.render("procurement",{
-      produce:items
+      produce:items,
+      currentUser:user
     })
   } catch (error) {
   res.status(400).send("unable to find items in the database ")  
@@ -81,7 +86,18 @@ router.get("/producelist",async(req,res) =>{
   }
 });
 
- 
+ router.post(
+   "/deleteproduce",
+   connectEnsureLogin.ensureLoggedIn(),
+   async (req, res) => {
+     try {
+       await Produce.deleteOne({ _id: req.body.id });
+       res.redirect("back");
+     } catch (error) {
+       res.status(400).send("unable to find this item in the database ");
+     }
+   }
+ );
  
 
 module.exports = router;

@@ -11,7 +11,7 @@ const creditorSchema = new mongoose.Schema({
         trim: true,
        // required: true
     },
-    location: {
+    branch: {
         type: String,
         trim: true,
        // required: true
@@ -49,6 +49,14 @@ const creditorSchema = new mongoose.Schema({
         type: Number,
         trim: true,
         //required: true
+    },
+    dueDate:{
+        type: Date,
+        trim: true,
+    },
+    paymentMode:{
+        type: String,  // Changed to String for better handling of phone numbers
+        trim: true,
     }
 });
 

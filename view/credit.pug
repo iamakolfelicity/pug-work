@@ -24,7 +24,7 @@ html
     h1.text-center.my-4 Credit Fill-in Form
 
     .container
-      form#form(onsubmit='return validateForm()' method="post" action="/creditRegister")
+      form#form(onsubmit='return validateForm()' method='post' action='/creditRegister')
         .row.mb-3
           .col
             label.form-label(for='firstName') Name of Buyer
@@ -34,48 +34,54 @@ html
             label.form-label(for='national') National ID
             input#national.form-control(type='text' name='national')
             span#nationalErr.error
+
         .row.mb-3
           .col
-            label.form-label(for='branch') Location
-            input#branch.form-control(type='text' name='location')
+            label.form-label(for='contact') Contact (Valid Phone Number)
+            input#contact.form-control(type='tel' name='contact' pattern='[0-9]{10}')
+            .form-text Enter a 10-digit valid phone number.
+            span#contactErr.error
+          .col
+            label.form-label(for='branch') Location / Branch
+            input#branch.form-control(type='text' name='branch')
             span#branchErr.error
+
+        .row.mb-3
           .col
             label.form-label(for='type') Type of Produce
             input#type.form-control(type='text' name='type')
             span#typeErr.error
-        .mb-3
-          label.form-label(for='date') Date of Dispatch
-          input#date.form-control(type='date' name='dispatchDate')
-          span#dateErr.error
-        .row.mb-3
           .col
             label.form-label(for='produce') Produce Name
-            input#produce.form-control(type='text' name='produce')
+            input#type.form-control(type='text' name='produce')
             span#produceErr.error
+
+        .row.mb-3
           .col
-            label.form-label(for='tonnage') Tonnage
+            label.form-label(for='tonnage') Tonnage (kg)
             input#tonnage.form-control(type='number' name='tonnage')
             span#tonnageErr.error
+          .col
+            label.form-label(for='date') Date of Dispatch
+            input#date.form-control(type='date' name='dispatchDate')
+            span#dateErr.error
+
         .row.mb-3
           .col
             label.form-label(for='agent') Sales Agent Name
             input#agent.form-control(type='text' name='agent')
             span#agentErr.error
           .col
-            label.form-label(for='contact') Contact (Valid Phone Number)
-            input#contact.form-control(type='tel' name='contact' pattern='[0-9]{10}')
-            .form-text Enter a 10-digit valid phone number.
-            span#contactErr.error
-        .row.mb-3
-          .col
-            label.form-label(for='amount') Amount Due
+            label.form-label(for='amount') Amount Due (UGX)
             input#amount.form-control(type='number' name='amount')
             span#amountErr.error
-          .col
-            label.form-label(for='dueDate') Due Date
-            input#dueDate.form-control(type='date' name='dueDate')
-            span#dueDateErr.error
-        button.btn.btn-primary(type='submit') Submit
+
+        .mb-3
+          label.form-label(for='dueDate') Due Date
+          input#dueDate.form-control(type='date' name='dueDate')
+          span#dueDateErr.error
+
+        button.btn.btn-primary.mt-4(type='submit') Submit
 
     script(src='/js/credit.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')

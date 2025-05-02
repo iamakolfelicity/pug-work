@@ -2,10 +2,19 @@ const express =require ("express")
 const router =express.Router()
 //import models this is used on line 11
 const Credit= require('../model/Credit')
+const Produce = require("../model/Produce");
 
-router.get("/creditRegister",(req,res)=>{
-    res.render("credit")
-})
+router.get("/creditRegister", async(req,res)=>{
+  try {
+          const produce = await Produce.findOne({ _id: req.params.id });
+          res.render("credit", {
+            produce: produce,
+            currentUser: req.session.user,
+          });
+        } catch (error) {
+          res.status(400).send("unable to find this item in the database ");
+        }
+      })
  router.post("/creditRegister", async (req,res) =>{
     try {
       const creditor= new Credit(req.body)

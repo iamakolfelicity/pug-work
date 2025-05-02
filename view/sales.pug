@@ -78,6 +78,13 @@ html
               if currentUser 
                 option(value=currentUser._id) #{currentUser.full_name}
             span#agentError.text-danger
+          .mb-3
+            label.form-label(for='paymentMode') Mode of Payment
+            select#paymentMode.form-control(name='paymentMode' required)
+              option(value='') Select Payment Mode
+              option(value='Cash') Cash
+              option(value='Deferred') Deferred
+
 
           div
             button#button.btn(type='submit') Submit

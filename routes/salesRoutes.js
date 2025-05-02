@@ -34,7 +34,12 @@ router.post("/registerSales/:id", connectEnsureLogin.ensureLoggedIn(), async (re
   if (!user || (user.position !== "sales_agent" && user.position !== "manager")) {
     return res.status(403).send("You are not allowed to access this page");
   }
-
+  const { paymentMode } = req.body; 
+  if (paymentMode === 'Deferred') {
+  
+    return res.redirect('/creditRegister');
+  }
+  
   const produceId = req.params.id;
 
   
@@ -85,14 +90,17 @@ router.post("/registerSales/:id", connectEnsureLogin.ensureLoggedIn(), async (re
 });
 
 //getting from db to list
-router.get("/salesList", async (req, res) => {
+router.get("/salesList",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  const user = req.session.user;
   try {
-    let items = await Sale.find()
+    
+    let items = await Sale.find({ branch: user.branch })
     .sort({ natural: -1 })
     .populate("product")
     .populate("agentName")
     res.render("salesList", {
       sales: items,
+      currentUser: user,
     });
 
   } catch (error) {
@@ -102,7 +110,7 @@ router.get("/salesList", async (req, res) => {
 //update sale
 // GET: 
 router.get("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-  if (req.user.role === 'manager') {
+  if (req.user.position === 'manager') {
     try {
       const updateSale = await Sale.findOne({ _id: req.params.id });
       res.render("updatesale", { sale: updateSale });
@@ -116,7 +124,7 @@ router.get("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, r
 
 
 router.post("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-  if ( req.user.role === 'manager') {
+  if ( req.user.position === 'manager') {
     try {
       await Sale.findOneAndUpdate({ _id: req.params.id }, req.body);
       res.redirect("/sales/salesList");
@@ -127,7 +135,7 @@ router.post("/updateSale/:id", connectEnsureLogin.ensureLoggedIn(), async (req, 
     res.status(403).send("Access denied. Managers only.");
   }
 });
-
+//delete
 router.post(
   "/deleteSale",
   connectEnsureLogin.ensureLoggedIn(),

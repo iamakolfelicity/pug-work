@@ -36,6 +36,27 @@ router.get("/DirectorDashboard",async(req,res) =>{
             }
           });
 
+// Route to get real-time sales data
+router.get("/sales/realTimeData", async (req, res) => {
+  try {
+    // Aggregate sales data for the dashboard (example: total sales per product)
+    const salesData = await Sale.aggregate([
+      {
+        $group: {
+          _id: "$product",   // Group by product name
+          totalSales: { $sum: "$amount" },  // Sum of sales amount for each product
+          totalQuantity: { $sum: "$quantity" } // Total quantity sold
+        }
+      },
+      { $sort: { totalSales: -1 } }  // Sort by total sales in descending order
+    ]);
+
+    res.json(salesData); // Send the data as JSON
+  } catch (error) {
+    console.error("Error fetching real-time data:", error);
+    res.status(500).json({ message: "Error fetching real-time data" });
+  }
+});
 
 
 module.exports=router
