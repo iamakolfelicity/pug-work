@@ -3,38 +3,43 @@ const router=express.Router()
 //import sales model
 const Sale = require("../model/Sale")
 
-router.get("/DirectorDashboard",async(req,res) =>{
-   
-        try {
-           let totalRevenue = await Sale.aggregate([
-            {$group:{_id:null,
-            totalQuantitySold:{$sum: "$quantity"},
-            totalSale:{$sum:{$multiply:["$price","$quantity"]} }
-        }}
-    ]) 
-        totalRevenue=totalRevenue[0] ??{totalQuantitySold:0,totalSale:0}
-        res.render("directorDash",{totalRevenue})
-        } catch (error) {
-            res.status(400).send("unable to find items in the database ")  
-            console.error("Aggregation error", error.message) 
+router.get("/DirectorDashboard", async (req, res) => {
+  try {
+    // Get total revenue
+    let totalRevenue = await Sale.aggregate([
+      {
+        $group: {
+          _id: null,
+          totalQuantitySold: { $sum: "$quantity" },
+          totalSale: { $sum: { $multiply: ["$price", "$quantity"] } }
         }
-            try {
-              let branchSales = await Sale.aggregate([
-                {
-                  $group: {
-                    _id: "$branch", // Group by branch
-                    totalQuantity: { $sum: "$quantity" },
-                    totalSale: { $sum: { $multiply: ["$price", "$quantity"] } }
-                  }
-                }
-              ]);
-          
-              res.render("directorDash", { branchSales });
-            } catch (error) {
-              res.status(400).send("Unable to fetch branch sales");
-              console.error("Aggregation error", error.message);
-            }
-          });
+      }
+    ]);
+
+    totalRevenue = totalRevenue[0] ?? { totalQuantitySold: 0, totalSale: 0 };
+
+  
+    let branchSales = await Sale.aggregate([
+      {
+        $group: {
+          _id: "$branch",
+          totalQuantity: { $sum: "$quantity" },
+          totalSale: { $sum: { $multiply: ["$price", "$quantity"] } }
+        }
+      }
+    ]);
+    const maganjo = branchSales.find(branch => branch._id === "Maganjo") || { totalSale: 0 };//if the branch is not found return a default totalsales=0
+    const matugga = branchSales.find(branch => branch._id === "Matugga") || { totalSale: 0 };
+    
+    
+    res.render("directorDash", { totalRevenue, maganjo,matugga });
+
+  } catch (error) {
+    console.error("Aggregation error:", error.message);
+    res.status(400).send("Unable to fetch dashboard data");
+  }
+});
+
 
 // Route to get real-time sales data
 router.get("/sales/realTimeData", async (req, res) => {

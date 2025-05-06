@@ -33,9 +33,9 @@ html
               |  Users
           br
           li
-            a(href="/settings")
-              span.material-icons-outlined settings
-              |  Settings
+            a(href="/signup")
+              span.material-icons-outlined add
+              |  Add User
           br
           br
           li.logout
@@ -50,27 +50,24 @@ html
         #first.card
           .innercard
             p.text-primary TOTAL SALES
-          span #{totalRevenue.totalSale}
+          span #{totalRevenue.totalSale} UGX
         #second.card
           .innercard
             p.text-primary TOTAL TONNES SOLD
-          span #{totalRevenue.totalQuantitySold}
+          span #{totalRevenue.totalQuantitySold} Tonnes
         #third.card
           .innercard
-            p.text-primary PRODUCE
-          span 5
+            p.text-primary MAGANJO SALES
+          span #{maganjo.totalSale} UGX
         #fourth.card
           .innercard
-            p.text-primary CREDITORS
-          span 16
-
+            p.text-primary MATUGGA SALES
+          span #{matugga.totalSale} UGX
       .charts
         .charts-card
           p Trend on sales
           #bar-chart
-        .charts-card
-          p Total sales annually
-          #area-chart
-
+      
+        
   script(src='https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js' integrity='sha512-yMnvLee1a5S9nemgCoMth5YvOchnQMFMOSao/bH6SLAXZnauuHs1gd92DnE9+sVQ5aglei3LZDelg8LauSlWkw==' crossorigin='anonymous' referrerpolicy='no-referrer')
   script(src='/js/dashboard.js')

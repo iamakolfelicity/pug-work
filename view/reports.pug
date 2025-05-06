@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Document
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css')
+    link(rel='stylesheet' href='/css/saleslist.css')
+  body 
+    nav.navbar.navbar-expand-lg.bg-body-tertiary
+      .container-fluid
+        a.navbar-brand(href='/products/producelist') Produce
+        button.navbar-toggler(
+          type='button',
+          data-bs-toggle='collapse',
+          data-bs-target='#navbarNav',
+          aria-controls='navbarNav',
+          aria-expanded='false',
+          aria-label='Toggle navigation'
+        )
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link(href='/sales/salesList') Sales List
+            li.nav-item
+              a.nav-link(href='/products/addProduct') Add Produce
+            li.nav-item
+              a.nav-link(href='/creditorlist') Creditor List
+            li.nav-item
+              a.nav-link(href='/') Log out
+
+    .container
+      table(style='width: 90%')
+        thead
+          tr
+            th Daily Report
+            th Date Submitted
+            th Branch
+        tbody
+          if reports.length
+            each report in reports
+              tr
+                td #{report.daily}
+                td #{moment(report.date).format("DD-MM-YYYY")}
+                td #{report.branch}
+          else
+            tr
+              td(colspan="3") No reports submitted yet.

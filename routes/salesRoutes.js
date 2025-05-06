@@ -60,7 +60,7 @@ router.post("/registerSales/:id", connectEnsureLogin.ensureLoggedIn(), async (re
     }
 
     if (produce.tonnage < quantity) {
-      return res.status(400).send(`Only ${produce.tonnage} kgs in stock`);
+      return res.status(400).send(`Only ${produce.tonnage} kgs in stock . Send  a notification to the manager`);
     }
 
     const amount = quantity * price;

@@ -63,7 +63,10 @@ router.get("/producelist",connectEnsureLogin.ensureLoggedIn() ,async(req,res) =>
 })
 
  //update Produce
+
  router.get("/updateProduce/:id",upload.single('image'), async (req, res) => {
+  const user = req.session.user;  
+  if (user.position === 'manager') {
   
    try {
      const updateProduce = await Produce.findOne({ _id: req.params.id });
@@ -71,9 +74,14 @@ router.get("/producelist",connectEnsureLogin.ensureLoggedIn() ,async(req,res) =>
    } catch (error) {
      res.status(400).send("unable to find this item in the database ");
    }
- });
+ } else {
+  res.status(403).send("Access denied. Managers only.");
+}});
  
  router.post("/updateProduce/:id", upload.single('image'), async (req, res) => {
+  const user = req.session.user;  
+  if (user.position === 'manager') {
+    
   try {
     const updateData = { ...req.body };
     if (req.file) {
@@ -84,18 +92,24 @@ router.get("/producelist",connectEnsureLogin.ensureLoggedIn() ,async(req,res) =>
   } catch (error) {
     res.status(400).send("Unable to update item in the DataBase");
   }
-});
+} else {
+  res.status(403).send("Access denied. Managers only.");
+}});
 
  router.post(
    "/deleteproduce",
    connectEnsureLogin.ensureLoggedIn(),
    async (req, res) => {
+    const user = req.session.user;  
+    if (user.position === 'manager') {
+    
      try {
        await Produce.deleteOne({ _id: req.body.id });
        res.redirect("back");
      } catch (error) {
        res.status(400).send("unable to find this item in the database ");
-     }
+     }}else {
+      res.status(403).send("Access denied. Managers only.");}
    }
  );
  

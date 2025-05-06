@@ -24,7 +24,7 @@ function formValidate() {
 
     let isValid = true;
 
-    if (fullname === "" || /\d/.test(fullname)) {
+    if (fullname === "" || /\d/.test(fullname) || fullname.length < 2) {
         fullnameErr.textContent = "Please enter your full name without numbers.";
         isValid = false;
     }

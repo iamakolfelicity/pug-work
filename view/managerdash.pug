@@ -1,0 +1,116 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Manager
+    link(rel="stylesheet", href="/css/manager.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined")
+    link(
+      rel="stylesheet",
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
+      crossorigin="anonymous"
+    )
+
+  body
+    .grid-container
+      // Header
+      header.header
+        .header.left
+          span KARIBU GROCERIES LIMITED
+
+      // Sidebar
+      aside#sidebar.show
+        ul.list
+          li
+            h1 MENU
+          li
+            a(href="/managerDashboard")
+              span.material-icons-outlined dashboard
+              | Dashboard
+          br
+          li
+            a(href="/products/procurementList")
+              span.material-icons-outlined inventory_2
+              | Procurement List
+          br
+          li
+            a(href="/products/producelist")
+             span.material-icons-outlined| shopping_bag
+             | View Produce
+          br
+          li
+            a(href="/creditorlist")
+              span.material-icons-outlined note
+              | Creditors
+          br
+          li
+            a(href="/products/addProduct")
+              span.material-icons-outlined add
+              | Add Produce
+          br
+          li
+            a(href="/dailyreports")
+              span.material-icons-outlined| article
+              | Reports
+          br
+          li.logout
+            a(href="/logout")
+              span.material-icons-outlined logout
+              | Log out
+
+      // Main content
+      main#main
+        h1 Manager Dashboard
+
+        .main-card
+          form#managerForm(action="/managerDashboard", method="POST" onsubmit="return validateForm()")
+            .form-group
+              .row.mb-3
+                .col
+                  label(for='branch') Branch
+                  select#branch.form-control(name='branch')
+                    option(value='' disabled selected) Select your branch
+                    option(value='Maganjo') Maganjo
+                    option(value='Matugga') Matugga
+                  span#branchErr.error.text-danger
+                .col
+                  label.form-label(for="date") Date 
+                  input#date.form-control(type="date", name="date")
+                  span#dateErr.error.text-danger
+
+              label(for="textarea") DAILY REPORT
+              textarea#textarea.form-control(name="daily", rows="3", cols="40")
+              span#reportErr.error.text-danger
+
+            div
+              button#button.btn.btn-primary(type="submit") Submit
+
+        .container
+          h3 USER LIST
+          table.table
+            thead
+              tr
+                th User Name
+                th Position
+                th Branch
+                th Phone Number
+            tbody
+              if workers.length
+                each worker in workers
+                  tr
+                    td #{ worker.full_name}
+                    td #{ worker.position}
+                    td #{ worker.branch}
+                    td #{ worker.phone_number}
+              else
+                tr
+                  td(colspan="4") No users found.
+
+    script(
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js",
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq",
+      crossorigin="anonymous"
+    )
+    script(src="/js/manager.js")
